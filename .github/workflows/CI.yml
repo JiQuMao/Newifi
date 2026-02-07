@@ -17,7 +17,7 @@ on:
 jobs:
   build:
     name: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     if: ${{ !(github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')) }}
     env:
       build_variant: ${{ matrix.build_variant }}
@@ -33,7 +33,7 @@ jobs:
           - build_variant: "mt7621"
             targets: "K2P_nano K2P DIR-878 RM2100 CR660x"
           - build_variant: "mt7621-usb"
-            targets: "XY-C1 JCG-836PRO JCG-AC860M JCG-Y2 DIR-882 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
+            targets: "NEWIFI3"
     steps:
       - uses: actions/checkout@v2
       - name: Prepare environment
